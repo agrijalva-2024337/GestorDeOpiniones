@@ -7,6 +7,9 @@ import {
   deletePublication
 } from './publication.controller.js';
 
+import commentRoutes from '../comments/comments.routes.js'; // import router de comentarios
+
+
 const router = Router();
 
 router.get('/', listPublications);
@@ -18,5 +21,8 @@ router.post('/', createPublication);
 router.put('/:id', updatePublication);
 
 router.delete('/:id', deletePublication);
+
+// Aquí se conectan los comentarios como subrutas
+router.use('/:id/comments', commentRoutes);
 
 export default router;
